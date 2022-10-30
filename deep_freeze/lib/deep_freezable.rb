@@ -5,13 +5,12 @@ module DeepFreezable
       array_or_hash.each do |element|
         element.freeze
       end
-      array_or_hash.freeze
     when Hash
       array_or_hash.each do |key, value|
         key.freeze
         value.freeze
       end
-      array_or_hash.freeze
     end
+    array_or_hash.freeze
   end
 end
