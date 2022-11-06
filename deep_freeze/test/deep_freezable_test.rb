@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require './lib/bank'
 require './lib/team'
+require 'pry'
 
 
 class DeepFreezableTest < MiniTest::Test
@@ -13,6 +14,8 @@ class DeepFreezableTest < MiniTest::Test
   def test_deep_freeze_to_hash
     assert_equal({'Japan' => 'yen', 'US' => 'dollar','India' => 'rupee'}, Bank::CURRENCIES)
     assert Bank::CURRENCIES.frozen?
-    assert Bank::CURRENCIES.all? {|country, passage| country.frozen? && passage.frozen?}
+    assert Bank::CURRENCIES.all? {|country, passage|
+      country.frozen? && passage.frozen?
+    }
   end
 end
